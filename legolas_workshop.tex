@@ -86,24 +86,52 @@ The equilibrium is then given by
 	\end{aligned}
 \end{equation*}
 where
-\[ p_0 = \frac{1}{2}\left(1 - \delta\right)^2 \qquad B_\infty = a\sqrt{\rho_0} \qquad \Omega = \alpha \sqrt{2\delta(1 - \delta)}\]
+\[ p_0 = \frac{1}{2}\left(1 - \delta\right)^2, \qquad B_\infty = a\sqrt{\rho_0}, \qquad \Omega = \alpha \sqrt{2\delta(1 - \delta)}\]
 
-\begin{figure}[b!]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{RTI_HD.png}
-	\caption{Values $\rho_0 = a = m = 1$, $\alpha = 2$, $\delta = 1/6$, $k = 0$ (hydrodynamics), incompressible.}
+	\begin{minipage}{0.50\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{RTI_HD.png}
+		\caption{Values $\rho_0 = a = m = 1$, $\alpha = 2$, $\delta = 1/6$, $k = 0$ (hydrodynamics), incompressible.}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+	\includegraphics[width=\textwidth]{RTI_MHD.png}
+\caption{Values $\rho_0 = a = m = 1$, $\alpha = 2$, $\delta = 1/6$, $k = 0.1$ (magnetohydrodynamics), incompressible.}
+	\end{minipage}
 \end{figure}
 
 \newpage
+\subsection{Magneto-rotational instabilities in accretion disks}
+This setup is taken from \citet{goedbloed2018} and models magneto-rotational instabilities in accretion disks. Legolas can model an accretion disk by assuming a cylindrical geometry and letting the grid start from a non-zero value, that is, $r \in [r_0, R]$.
+In what follows the parameter $\delta$ denotes $R / r_0$. The equilibrium is given by
+\begin{equation*}
+	\begin{aligned}[t]
+		\rho(r) &= r^{-3/2} \\
+		p(r) &= p_1r^{-5/2} \\
+		v_\theta(r) &= \Omega_1 r^{-1/2} \\
+		B_\theta(r) &= B_{\theta 1}r^{-5/4} \\
+		B_z(r) &= B_{z1}r^{-5/4} \\
+		g(r) &= \frac{1}{r^2}
+	\end{aligned}
+	\qquad\qquad
+	\begin{aligned}[t]
+		\rho'(r) &= -\frac{3}{2}r^{-5/2} \\
+		p'(r) &= -\frac{5}{2}p_1 r^{-7/2} \\
+		v_\theta'(r) &= -\frac{1}{2}\Omega_1 r^{-3/2} \\
+		B_\theta'(r) &= -\frac{5}{4}B_{\theta 1}r^{-9/4} \\
+		B_z'(r) &= -\frac{5}{4}B_{z1}r^{-9/4}
+	\end{aligned}
+\end{equation*}
+where
+\[ p_1 = \epsilon^2, \qquad B_{z1} = \sqrt{\frac{2p_1}{\beta(1 + \mu_1^2)}}, \qquad B_{\theta 1} = \mu_1 B_{z1}, \qquad v_{\theta 1} = \sqrt{1 - \frac{5}{2}p_1 - \frac{1}{4}B_{\theta 1}^2 - \frac{5}{4}B_{z1}^2} \]
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{RTI_MHD.png}
-	\caption{Values $\rho_0 = a = m = 1$, $\alpha = 2$, $\delta = 1/6$, $k = 0.1$ (magnetohydrodynamics), incompressible.}
+	\includegraphics[width=0.8\textwidth]{accretion_disk.png}
+	\caption{Values $m = 0$, $k = 70$, $\beta = 100$, $\mu_1 = 1$, $\epsilon = 0.1$ and $\delta = 2$.}
 \end{figure}
-
-\newpage
-
 \bibliographystyle{bibstyle}
 \bibliography{bibfile}
 
