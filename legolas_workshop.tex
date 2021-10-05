@@ -31,7 +31,7 @@ The Legolas code can be found on \href{https://github.com/n-claes/legolas}{GitHu
 Below is a list of possible setups that can be implemented in the user submodule. We've added a reference figure together with the link to the original work so you can check your implementation and compare with known results.
 
 \subsection{Internal kink modes in force-free magnetic fields}
-This setup is taken from \citet{goedbloed2018}, which is a cylindrical equilibrium with a force-free magnetic field of constant $\alpha$ and profiles given by
+This setup is taken from \citet{goedbloed2018} and corresponds to a cylindrical equilibrium with a force-free magnetic field of constant $\alpha$ and profiles given by
 \begin{equation*}
 	\begin{aligned}[t]
 		\rho(r) &= \rho_0\left(1 - x^2\right) \\
@@ -65,6 +65,44 @@ where $x = r / a$ and $a$ denotes the outer wall of the cylinder.
 	\end{minipage}
 \end{figure}
 
+\subsection{RTI in rotating theta-pinches}
+This setup is taken from \citet{goedbloed2018} and corresponds to Rayleigh-Taylor instabilities in rotating theta-pinches.
+Introducing the following quantities
+\[ x = \frac{r}{a} \qquad\qquad f_x = \alpha^2\left(x^2 - r_0^2\right) \qquad\qquad f_x' = \frac{2\alpha^2 x}{a} \]
+where $a$ denotes the cylinder wall and $r_0 = 0$ in this case.
+The equilibrium is then given by
+\begin{equation*}
+	\begin{aligned}[t]
+		\rho(r) &= \frac{\rho_0}{\cosh^2(f_x)} \\
+		v_\theta(r) &= \Omega r \\
+		B_z(r) &= B_\infty\left[\delta + \left(1 - \delta\right)\tanh(f_x)\right] \\
+		T(r) &= \frac{p_0}{\rho_0} \\
+	\end{aligned}
+	\qquad\qquad
+	\begin{aligned}[t]
+		\rho'(r) &= \frac{-2\rho_0 f_x' \tanh(f_x)}{\cosh^2(f_x)} \\
+		v_\theta'(r) &= \Omega \\
+		B_z'(r) &= \frac{B_\infty\left(1 - \delta\right)f_x'}{\cosh^2(f_x)}
+	\end{aligned}
+\end{equation*}
+where
+\[ p_0 = \frac{1}{2}\left(1 - \delta\right)^2 \qquad B_\infty = a\sqrt{\rho_0} \qquad \Omega = \alpha \sqrt{2\delta(1 - \delta)}\]
+
+\begin{figure}[b!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{RTI_HD.png}
+	\caption{Values $\rho_0 = a = m = 1$, $\alpha = 2$, $\delta = 1/6$, $k = 0$ (hydrodynamics), incompressible.}
+\end{figure}
+
+\newpage
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.9\textwidth]{RTI_MHD.png}
+	\caption{Values $\rho_0 = a = m = 1$, $\alpha = 2$, $\delta = 1/6$, $k = 0.1$ (magnetohydrodynamics), incompressible.}
+\end{figure}
+
+\newpage
 
 \bibliographystyle{bibstyle}
 \bibliography{bibfile}
