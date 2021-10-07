@@ -132,6 +132,56 @@ where
 	\includegraphics[width=0.8\textwidth]{accretion_disk.png}
 	\caption{Values $m = 0$, $k = 70$, $\beta = 100$, $\mu_1 = 1$, $\epsilon = 0.1$ and $\delta = 2$.}
 \end{figure}
+
+
+\newpage
+\subsection{RTI in magnetised plasmas}
+This setup is taken from \citet{book_MHD} and corresponds to pure Rayleigh-Taylor instabilities in a Cartesian slab with a unidirectional magnetic field and linear velocity profile. The equilibrium for $0 \leq x \leq 1$ is given by
+\begin{equation} \label{eq: RTI}
+	\begin{aligned}[t]
+		\rho(x) &= \rho_0(1 - \delta x) \\
+		p(x) &= p_0 - g_0\left(x - \frac{1}{2}\delta x^2\right) \\
+		v_y(x) &= \xi(x)\sin\theta \\
+		v_z(x) &= \xi(x)\cos\theta \\
+		B_y(x) &= \sin\phi(x) \\
+		B_z(x) &= \cos\phi(x) \\
+	\end{aligned}
+	\qquad\qquad
+	\begin{aligned}[t]
+		g(x) &= g_0 \\
+		\rho'(x) &= -\rho_0 \delta \\
+		p'(x) &= -g_0(1 - \delta x) \\
+		v_y'(x) &= \xi'(x)\sin\theta \\
+		v_z'(x) &= \xi'(x)\cos\theta \\
+		B_y'(x) &= \alpha\cos\phi(x) \\
+		B_z'(x) &= -\alpha\sin\phi(x)
+	\end{aligned}
+\end{equation}
+with
+\begin{equation*}
+	\begin{gathered}
+		\xi(x) = v_0 + v_1\left(x - \frac{1}{2}\right) + v_2\sin\left[\tau\left(x - \frac{1}{2}\right)\right], \qquad
+		\xi'(x) = v_1 + v_2\tau \cos\left[\tau\left(x - \frac{1}{2}\right)\right], \\
+		\phi(x) = \phi_0 + \alpha\left(x - \frac{1}{2}\right)
+	\end{gathered}
+\end{equation*}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{RTI_book.png}
+	\caption{Values $k_y = 0$, $k_z = 1$, $\delta = -5$, $g_0 = 15$, $\rho_0 = 1$, $p_0 = 10^3$, $\phi_0 = -0.35\pi$, $\alpha = 0$, $\theta = 0.35\pi$, $v_0 = 0.2$, $v_1 = 0.6$, $v_2 = 0$, $\tau = 0$.}
+\end{figure}
+
+\newpage
+\subsection{KHI in hydrodynamics}
+This setup uses the same equilibrium prescription as \eqref{eq: RTI} but with different parameters, which corresponds to Kelvin-Helmholtz instabilities of a stationary fluid with a sinusoidal velocity profile.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{KHI_book.png}
+	\caption{Values $k_y = 0$, $k_z = 1$, $\delta = 0$, $g_0 = 0$, $\rho_0 = 1$, $p_0 = 10^3$, $\phi_0 = 0$, $\alpha = 0$, $\theta = 0$, $v_0 = v_1 = 0$, $v_2 = 1$, $\tau = 11$.}
+\end{figure}
+
 \bibliographystyle{bibstyle}
 \bibliography{bibfile}
 
